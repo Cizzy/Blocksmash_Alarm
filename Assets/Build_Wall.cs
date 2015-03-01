@@ -292,6 +292,7 @@ public class Build_Wall : MonoBehaviour {
 	private int oldcolour;
 
 	void Update () {
+
 		timenow=System.DateTime.Now;
 		int time = timenow.Hour*100+timenow.Minute;
 		//Debug.Log(timenow.ToString());
@@ -312,6 +313,7 @@ public class Build_Wall : MonoBehaviour {
 			oldcolour=randcolour;
 		} 
 		else {
+			//audio.Stop();
 			//Camera.main.backgroundColor = Color.blue;
 		}
 
@@ -322,10 +324,9 @@ public class Build_Wall : MonoBehaviour {
 
 		if (screenchange == true) {
 			flashtimer += Time.deltaTime;//time passed since last screen refresh
-			if (flashtimer > 0.5f) {
+			if (flashtimer > 1.0f) {
 				colourtoggle=true;
-				//if(colourtoggle==true){colourtoggle=false;}
-				//else{colourtoggle=true;}
+				audio.Play();
 				flashtimer = 0;
 			}
 		}
